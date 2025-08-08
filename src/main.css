@@ -1,21 +1,55 @@
 :root {
+    
+    /*
     --main: #ffffff;
     --lighter_main: #13173ba5;
     --accent: #1b27ab60;
     --background: white;
-    /*
+
     --main: #070812a5;
     --lighter_main: #13173ba5;
     --accent: #1b27ab60;
     --background: linear-gradient(to bottom, #0f172a, #1a283c)
     background: var(--background);
     */
+
+    /* Color Palette HEX */
+    --black-pearl: #0d1b2a;
+    --big-stone: #1b263b;
+    --fiord: #415a77;
+    --bermuda-gray: #778da9;
+    --mercury: #e0e1dd;
+
+    
+    /* Alt. Color Palette */
+    /*
+    --main: #f0dccaff;
+    --lighter_main: #5C573E;
+    --accent: #8a94b7ff;
+    --card: #044479ff;
+    --card_accent: #0b0a39ff;
+
+    --blue-charcoal: #000814;
+    --midnight: #001d3d;
+    --midnight-blue: #003566;
+    --amber: #ffc300;
+    --gold: #ffd60a;
+
+    --black-pearl: #0d1b2a;
+    --big-stone: #1b263b;
+    --fiord: #415a77;
+    --bermuda-gray: #778da9;
+    --mercury: #e0e1dd;
+
+    */
 }
 
 body { 
     /*background-image: url(../static/img/paper.jpg);*/
+    min-height: 100vh;
+        
     background-size: 100% auto;
-
+    background-color: var(--mercury);
     background-repeat: repeat-y;
     margin: 0;
 	padding: 0;
@@ -23,15 +57,23 @@ body {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+
     /*
     background: conic-gradient(at bottom right, #1d4ed8, #1e40af, #111827);
      border: 3px dotted black; 
      */
 }
 
+
 p, h1, a {
     color:rgb(0, 0, 0);
 }
+
+p{
+    line-height: 2.0;
+}
+
+
 
 .navbar {
     /* border: 3px solid black; */
@@ -44,10 +86,9 @@ p, h1, a {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    
     height: 64px;
-    width: 100%;
-    background-color: rgb(255, 255, 255);
+    width: 100vw;
+    background-color: var(--big-stone);
     
     
     /*
@@ -73,14 +114,18 @@ main {
     grid-template-columns: 3fr 1fr;
     grid-template-rows: repeat(2, 0.5fr), 1fr, 1fr;
 
-    width:100%;
+    width:100vw;
     height: 600px;
 }
 
 .about-me h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-column: 1;
     margin-left: 4%;
     margin-right: 4%;
+    
 }
 
 #my-face{
@@ -95,18 +140,19 @@ main {
 
 #my-face img{
     border-radius: 50%;
-    border: 8px solid rgb(60, 58, 58);
-    max-height: 500px;
-    max-width: 500px;
+    border: 8px solid var(--big-stone);
+    max-width: 30vw;
+    width: 500px;
 }
 
-
+/*
 @media only screen and (max-width: 600px) {
     .image img{
-        max-height: 250px;
-        max-width: 250px;
+        max-height: 20%;
+        max-width: 20%;
     }
 }
+*/
 
 .text{
     grid-column: 1;
@@ -129,7 +175,7 @@ main {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgb(60, 58, 58);
+    background-color: var(--big-stone);
 }
 
 .social-links img{
@@ -138,7 +184,10 @@ main {
 }
 
 .project-image img{
-    max-width: 250px;
+    padding: 5px;
+    background-color: var(--mercury);
+    width: 250px;
+    max-width: 45vw;
 }
 
 .project-section{
@@ -147,12 +196,12 @@ main {
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    width: 100%;
+    width: 100vw;
     height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: rgb(108, 108, 108);
+    background-color: var(--bermuda-gray);
     box-shadow: 0 13px 13px -10px rgba(0,0,0,.08);
 }
 
@@ -164,9 +213,11 @@ main {
     min-height: 500px;
     max-height: auto;
     width: 1000px;
+    max-width: 90%;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: rgb(172, 36, 36);
+    background-color: var(--fiord);
+    border-radius: 12px;
 }
 
 
@@ -187,7 +238,6 @@ main {
     height: 500px;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: rgb(126, 18, 220);
 }
 
 #project-2{
@@ -195,7 +245,6 @@ main {
     height: 500px;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: rgb(36, 61, 172);
 }
 
 #project-3{
@@ -203,7 +252,6 @@ main {
     height: 500px;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: rgb(36, 172, 97);
 }
 
 #project-4{
@@ -211,9 +259,33 @@ main {
     height: 500px;
     margin-top: 20px;
     margin-bottom: 20px;
-    background-color: rgb(218, 255, 125);
 }
 
+
+/* Responsive design for smaller screens*/
+@media only screen and (max-width: 700px){
+    p{
+        line-height: normal;
+    }
+
+    .project-card{
+        flex-direction: column;
+    }
+
+    #my-face{
+        grid-row: 3 / 4;
+        align-self: center;
+        justify-self: center;
+    }
+    #my-face img{
+        max-width: 50vw;
+    }
+    .about-me {
+        display: grid;
+        grid-template-columns: 3fr;
+        grid-template-rows: repeat(2, 0.5fr), 1fr, 1fr;
+    }
+}
 /*
 .about-me h1{
     margin-left: 4%;
